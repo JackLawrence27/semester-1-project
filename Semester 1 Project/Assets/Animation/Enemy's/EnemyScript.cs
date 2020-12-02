@@ -14,11 +14,13 @@ public class EnemyScript : MonoBehaviour
     float moveSpeed;
 
     Rigidbody2D rb2d;
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -51,10 +53,12 @@ public class EnemyScript : MonoBehaviour
             rb2d.velocity = new Vector2(-moveSpeed, 0);
             transform.localScale = new Vector2(1, 1);
         }
+        anim.SetBool("isChasing", true);
     }
 
      void StopChase()
     {
         rb2d.velocity = new Vector2(0, 0);
+        anim.SetBool("isChasing", false);
     }
 }

@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: cfcc4324aa7f2754b9b4611491c28c49
+guid: c335187a699535d47a58603c7f8e3e17
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6260936929753847507
-    second: Boar Run_0
+      213: -4646402010206750039
+    second: Run 2_0
   - first:
-      213: -2978286432877889250
-    second: Boar Run_1
+      213: 9105802305618057738
+    second: Run 2_1
   - first:
-      213: 4289950629858216017
-    second: Boar Run_2
+      213: 828859250044356556
+    second: Run 2_2
   - first:
-      213: -2979538639199142589
-    second: Boar Run_3
+      213: 4906378246625660239
+    second: Run 2_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -76,7 +76,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -88,7 +88,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +100,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -111,7 +111,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Boar Run_0
+      name: Run 2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,14 +125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d29a5e4c80fac19a0800000000000000
-      internalID: -6260936929753847507
+      spriteID: 9aa37f94df9a48fb0800000000000000
+      internalID: -4646402010206750039
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boar Run_1
+      name: Run 2_1
       rect:
         serializedVersion: 2
         x: 45
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e19b2f8d4400ba6d0800000000000000
-      internalID: -2978286432877889250
+      spriteID: a0a1c4dc3fe4e5e70800000000000000
+      internalID: 9105802305618057738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boar Run_2
+      name: Run 2_2
       rect:
         serializedVersion: 2
         x: 90
@@ -167,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15889a46e57f88b30800000000000000
-      internalID: 4289950629858216017
+      spriteID: cc7c0bfa813b08b00800000000000000
+      internalID: 828859250044356556
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Boar Run_3
+      name: Run 2_3
       rect:
         serializedVersion: 2
         x: 135
@@ -188,8 +188,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34dfbf7d46d86a6d0800000000000000
-      internalID: -2979538639199142589
+      spriteID: f4d83db2505f61440800000000000000
+      internalID: 4906378246625660239
       vertices: []
       indices: 
       edges: []
