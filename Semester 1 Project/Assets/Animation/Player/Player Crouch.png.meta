@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 3165da43e2cd6f14893e0e507ec8ea3e
+guid: c8779ccdede282346aac8642ed5432c3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3785602302493822810
-    second: Player Idle 1_0
+      213: -675008643044156858
+    second: Player Crouch_0
   - first:
-      213: 606500808660693603
-    second: Player Idle 1_1
+      213: -9191062621427390330
+    second: Player Crouch_1
   - first:
-      213: -3574076541456980477
-    second: Player Idle 1_2
+      213: 8273271194913387462
+    second: Player Crouch_2
   - first:
-      213: 1240275404181123821
-    second: Player Idle 1_3
+      213: 390998846037455439
+    second: Player Crouch_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,7 +111,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Idle 1_0
+      name: Player Crouch_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,14 +125,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a074fa43c6d67bc0800000000000000
-      internalID: -3785602302493822810
+      spriteID: 64ad80b2733e1a6f0800000000000000
+      internalID: -675008643044156858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 1_1
+      name: Player Crouch_1
       rect:
         serializedVersion: 2
         x: 50
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3623538a549ba6800800000000000000
-      internalID: 606500808660693603
+      spriteID: 688237dfd39c27080800000000000000
+      internalID: -9191062621427390330
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 1_2
+      name: Player Crouch_2
       rect:
         serializedVersion: 2
         x: 100
@@ -167,14 +167,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30666626254566ec0800000000000000
-      internalID: -3574076541456980477
+      spriteID: 6c3b84f615090d270800000000000000
+      internalID: 8273271194913387462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 1_3
+      name: Player Crouch_3
       rect:
         serializedVersion: 2
         x: 150
@@ -188,8 +188,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de2bed9a8e7563110800000000000000
-      internalID: 1240275404181123821
+      spriteID: f4276adf06b1d6500800000000000000
+      internalID: 390998846037455439
       vertices: []
       indices: 
       edges: []

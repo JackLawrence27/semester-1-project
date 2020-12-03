@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 3165da43e2cd6f14893e0e507ec8ea3e
+guid: e13bc55b50a219941bd907e51c9af14f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3785602302493822810
-    second: Player Idle 1_0
+      213: 2966684270472961932
+    second: Player Crouch Walking_0
   - first:
-      213: 606500808660693603
-    second: Player Idle 1_1
+      213: 3275750780457903917
+    second: Player Crouch Walking_1
   - first:
-      213: -3574076541456980477
-    second: Player Idle 1_2
+      213: -7403201909696174244
+    second: Player Crouch Walking_2
   - first:
-      213: 1240275404181123821
-    second: Player Idle 1_3
+      213: -8024063480628191078
+    second: Player Crouch Walking_3
+  - first:
+      213: -1455382348872780251
+    second: Player Crouch Walking_4
+  - first:
+      213: -4369451665480365577
+    second: Player Crouch Walking_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -111,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Player Idle 1_0
+      name: Player Crouch Walking_0
       rect:
         serializedVersion: 2
         x: 0
@@ -125,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6a074fa43c6d67bc0800000000000000
-      internalID: -3785602302493822810
+      spriteID: c8f974630a7cb2920800000000000000
+      internalID: 2966684270472961932
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 1_1
+      name: Player Crouch Walking_1
       rect:
         serializedVersion: 2
         x: 50
@@ -146,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3623538a549ba6800800000000000000
-      internalID: 606500808660693603
+      spriteID: d27e6e9aafdc57d20800000000000000
+      internalID: 3275750780457903917
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 1_2
+      name: Player Crouch Walking_2
       rect:
         serializedVersion: 2
         x: 100
@@ -167,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 30666626254566ec0800000000000000
-      internalID: -3574076541456980477
+      spriteID: c57e014461b824990800000000000000
+      internalID: -7403201909696174244
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Player Idle 1_3
+      name: Player Crouch Walking_3
       rect:
         serializedVersion: 2
         x: 150
@@ -188,8 +194,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de2bed9a8e7563110800000000000000
-      internalID: 1240275404181123821
+      spriteID: a90e8f517ccc4a090800000000000000
+      internalID: -8024063480628191078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Crouch Walking_4
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 50
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5267013f6717dcbe0800000000000000
+      internalID: -1455382348872780251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Crouch Walking_5
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 0
+        width: 50
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f9cdcf4cd69c53c0800000000000000
+      internalID: -4369451665480365577
       vertices: []
       indices: 
       edges: []

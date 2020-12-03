@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     [SerializeField] Transform overheadCheckCollider;
     [SerializeField] LayerMask groundLayer;
 
-    [SerializeField] float speed = 1;
+    [SerializeField] float speed = 0.5f;
     [SerializeField] float jumpSpeed = 500;
     const float overheadCheckRadius = 0.2f;
     const float groundCheckRadius = 0.2f;
@@ -26,8 +26,6 @@ public class Player : MonoBehaviour
     bool isRunning;
     bool crouchPressed;
     bool jump;
-    
-    
     bool facingRight;
 
     void Awake()
@@ -41,6 +39,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Set Anim yVelocity
+        anim.SetFloat("yVelocity", rb.velocity.y);
+
         //Storing the horizontal value
         horizontalValue = Input.GetAxisRaw("Horizontal");
 
@@ -70,7 +71,11 @@ public class Player : MonoBehaviour
 
         //If we press jump button enable/disable jump
         if (Input.GetButtonDown("Jump"))
+        {
+            anim.SetBool("Jump", true);
             jump = true;
+        }
+            
         else if (Input.GetButtonUp("Jump"))
             jump = false;
 
@@ -79,12 +84,16 @@ public class Player : MonoBehaviour
             crouchPressed = true;
         else if (Input.GetButtonUp("Crouch"))
             crouchPressed = false;
+
     }
 
     void FixedUpdate()
     {
         GroundCheck();
         Move(horizontalValue, jump, crouchPressed);
+
+        //Stop spam jumping
+        jump = false;
     }
 
     void GroundCheck()
@@ -94,6 +103,9 @@ public class Player : MonoBehaviour
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, groundLayer);
         if (colliders.Length > 0)
             isGrounded = true;
+
+        //Disable Jump bool in animator
+        anim.SetBool("Jump", !isGrounded);
     }
 
     void Move(float dir,bool jumpFlag,bool crouchFlag)
@@ -112,11 +124,12 @@ public class Player : MonoBehaviour
             standingCollider.enabled = !crouchFlag;
 
 
+
             //If played is grounded press jump
             if(jumpFlag)
             {
-                isGrounded = false;
                 jumpFlag = false;
+                //isGrounded = false;
                 rb.AddForce(new Vector2(0f, jumpSpeed));
             }
         }
@@ -128,14 +141,15 @@ public class Player : MonoBehaviour
 
         #region Move And Run
         //Set player speed based
-        float xVal = dir * speed * 100 * Time.fixedDeltaTime;
+        float xVal = dir * speed * 75 * Time.fixedDeltaTime;
         //If we are running multiply move speed
-        if (isRunning)
+        if (isRunning && !crouchFlag)
             xVal *= runSpeedModifier;
-        //If we are running multiply move speed
+        //If we are crouching divide the speed by 4
         if (crouchFlag)
             xVal *= runSpeedModifier/4;
 
+        Debug.Log(xVal);
         //Create Vector and assign player velocity
         Vector2 targetVelocity = new Vector2(xVal,rb.velocity.y);
         rb.velocity = targetVelocity;
