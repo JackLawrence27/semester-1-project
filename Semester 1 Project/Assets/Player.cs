@@ -16,6 +16,8 @@ public class Player : MonoBehaviour
 
     [SerializeField] float speed = 0.5f;
     [SerializeField] float jumpSpeed = 500;
+    [SerializeField] int totalJumps;
+    int availableJumps;
     const float overheadCheckRadius = 0.2f;
     const float groundCheckRadius = 0.2f;
     float horizontalValue;
@@ -25,11 +27,13 @@ public class Player : MonoBehaviour
     bool isGrounded;
     bool isRunning;
     bool crouchPressed;
-    bool jump;
     bool facingRight;
+    bool multipleJump;
 
+    //Coding
     void Awake()
     {
+        availableJumps = totalJumps;
         //Enable use of components
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -72,45 +76,77 @@ public class Player : MonoBehaviour
         //If we press jump button enable/disable jump
         if (Input.GetButtonDown("Jump"))
         {
-            anim.SetBool("Jump", true);
-            jump = true;
+            Jump();
         }
-            
-        else if (Input.GetButtonUp("Jump"))
-            jump = false;
 
         //If we press jump button enable/disable crouch
-        if (Input.GetButtonDown("Crouch"))
-            crouchPressed = true;
-        else if (Input.GetButtonUp("Crouch"))
-            crouchPressed = false;
+        if (isGrounded)
+        {
+            if (Input.GetButtonDown("Crouch"))
+                crouchPressed = true;
+            else if (Input.GetButtonUp("Crouch"))
+                crouchPressed = false;
+        }
 
     }
 
     void FixedUpdate()
     {
         GroundCheck();
-        Move(horizontalValue, jump, crouchPressed);
-
-        //Stop spam jumping
-        jump = false;
+        Move(horizontalValue,crouchPressed);
     }
 
     void GroundCheck()
     {
+        //Track previous grounded state
+        bool wasGrounded = isGrounded;
         isGrounded = false;
+
         //Check if the player groundcheck is colliding with other colliders
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckCollider.position, groundCheckRadius, groundLayer);
         if (colliders.Length > 0)
+        {
             isGrounded = true;
+
+            if (!wasGrounded)
+            {
+                availableJumps = totalJumps;
+                jumpSpeed = 8f;
+                multipleJump = false;
+                Debug.Log("LANDED");
+            }
+        }
+
 
         //Disable Jump bool in animator
         anim.SetBool("Jump", !isGrounded);
     }
 
-    void Move(float dir,bool jumpFlag,bool crouchFlag)
+    void Jump()
     {
-        #region Jump And Crouch
+        //If crouch pressed disable standing collider
+        if (isGrounded)
+        {
+            multipleJump = true;
+            availableJumps--;
+        
+            rb.velocity = Vector2.up * jumpSpeed;
+            anim.SetBool("Jump", true);
+        } else
+        {
+            if(multipleJump && availableJumps > 0)
+            {
+                availableJumps--;
+                jumpSpeed = jumpSpeed / 2 + 1.5f;
+                rb.velocity = Vector2.up * jumpSpeed;
+                anim.SetBool("Jump", true);
+            }
+        }
+    }
+
+    void Move(float dir,bool crouchFlag)
+    {
+        #region Crouch
         //When not crouching under a collider
         if (!crouchFlag)
         {
@@ -118,23 +154,8 @@ public class Player : MonoBehaviour
                 crouchFlag = true;
         }
 
-        //If crouch pressed disable standing collider
-        if (isGrounded)
-        {
-            standingCollider.enabled = !crouchFlag;
-
-
-
-            //If played is grounded press jump
-            if(jumpFlag)
-            {
-                jumpFlag = false;
-                //isGrounded = false;
-                rb.AddForce(new Vector2(0f, jumpSpeed));
-            }
-        }
-
         anim.SetBool("Crouch", crouchFlag);
+        standingCollider.enabled = !crouchFlag;
         #endregion
 
 
