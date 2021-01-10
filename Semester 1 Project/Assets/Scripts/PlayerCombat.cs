@@ -40,6 +40,7 @@ public class PlayerCombat : MonoBehaviour
     }
      IEnumerator Damage()
     {
+        SoundManagerScript.PlaySound("jump_snd");
         yield return new WaitForSeconds(0.2f);
         SoundManagerScript.PlaySound("attack_snd");
         yield return new WaitForSeconds(0.2f);
