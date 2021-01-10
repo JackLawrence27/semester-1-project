@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
         if (crouchFlag)
             xVal *= runSpeedModifier/4;
 
-        Debug.Log(xVal);
+        //Debug.Log(xVal);
         //Create Vector and assign player velocity
         Vector2 targetVelocity = new Vector2(xVal,rb.velocity.y);
         rb.velocity = targetVelocity;

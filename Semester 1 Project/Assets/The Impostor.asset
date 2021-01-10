@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: The Impostor
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1703052072
   material: {fileID: -2189315325638977835}
-  materialHashCode: 0
+  materialHashCode: 645161811
   m_Version: 1.1.0
   m_SourceFontFileGUID: 60979decd2e6dfe40bc6c7eb1846a31d
   m_SourceFontFile_EditorRef: {fileID: 0}
