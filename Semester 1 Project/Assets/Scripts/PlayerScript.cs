@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerScript : MonoBehaviour
 {
 
  
@@ -24,9 +24,9 @@ public class Player : MonoBehaviour
     float runSpeedModifier = 2;
 
     //Not assigned as default is false;
-    bool isGrounded;
+    public bool isGrounded;
+    public bool crouchPressed;
     bool isRunning;
-    bool crouchPressed;
     bool facingRight;
     bool multipleJump;
 
@@ -132,6 +132,7 @@ public class Player : MonoBehaviour
         
             rb.velocity = Vector2.up * jumpSpeed;
             anim.SetBool("Jump", true);
+            SoundManagerScript.PlaySound("jump_snd");
         } else
         {
             if(multipleJump && availableJumps > 0)
