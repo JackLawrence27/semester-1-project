@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManagerScript : MonoBehaviour
 {
 
-    public static AudioClip playerJumpSound, playerAttackSound, boarHurtOne, boarHurtTwo, boarDeath;
+    public static AudioClip playerJumpSound, playerAttackSound, boarHurtOne, boarHurtTwo, boarDeath, boarRun;
     static AudioSource audioSrc;
 
     void Start()
@@ -15,6 +15,7 @@ public class SoundManagerScript : MonoBehaviour
         boarHurtOne = Resources.Load<AudioClip>("boar_hurt1");
         boarHurtTwo = Resources.Load<AudioClip>("boar_hurt2");
         boarDeath = Resources.Load<AudioClip>("boar_death");
+        boarRun = Resources.Load<AudioClip>("boar_run");
 
         audioSrc = GetComponent<AudioSource>();
     }
@@ -42,6 +43,9 @@ public class SoundManagerScript : MonoBehaviour
                 break;
             case "boar_death":
                 audioSrc.PlayOneShot(boarDeath);
+                break;
+            case "boar_run":
+                audioSrc.PlayOneShot(boarRun);
                 break;
         }
     }
