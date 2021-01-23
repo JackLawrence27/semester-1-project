@@ -18,6 +18,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Update()
     {
+        //Checking if the time since the last attack has been long enough to allow the player to attack again
         if (Time.time >= nextAttackTime)
         {
             if (Input.GetKeyDown(KeyCode.J))
@@ -30,6 +31,7 @@ public class PlayerCombat : MonoBehaviour
 
     void Attack()
     {
+        //If the player is on the ground and not crouching it can continue with the attack routine
         if (pS.isGrounded == true && pS.crouchPressed == false)
         {
             //Play Attack animation
@@ -57,6 +59,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void OnDrawGizmosSelected()
     {
+        //Show the attack range in the unity editor
         if (attackPoint == null)
             return;
 

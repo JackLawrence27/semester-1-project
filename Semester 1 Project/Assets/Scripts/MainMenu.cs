@@ -10,12 +10,13 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        //This is used when hitting play game on the main menu putting you into the next unity scene through a iEnum
         StartCoroutine(LoadScene());
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void QuitGame()
     {
+        //Used for quit game on the menu
         Application.Quit();
     }
 

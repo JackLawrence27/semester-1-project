@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - turn
+  - enemy
+  - player
+  - deathReset
   layers:
   - Default
   - TransparentFX

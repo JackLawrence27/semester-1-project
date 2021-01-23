@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour
 
     public Animator animator;
     public AudioSource audioSource;
+    public string tagToIgnore = "enemy";
+    public string tagToIgnoreWhenDead = "player";
 
 
     public float speed;
-    public bool MoveRight;
+    public bool moveRight;
 
     void Start()
     {
@@ -20,11 +22,30 @@ public class Enemy : MonoBehaviour
 
     }
 
+    
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == tagToIgnore)
+        {
+            Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+        }
+
+        if (currentHealth <= 0)
+        {
+            if (collision.gameObject.tag == tagToIgnoreWhenDead)
+            {
+                Physics2D.IgnoreCollision(collision.gameObject.GetComponent<Collider2D>(), GetComponent<Collider2D>());
+            }
+        }
+    }
+
+
     // Use this for initialization
     void Update()
     {
-        // Use this for initialization
-        if (MoveRight)
+        // Making sure the boar is facing and travelling in the right direction based on the moveRight variable
+        if (moveRight)
         {
             transform.Translate(2 * Time.deltaTime * speed, 0, 0);
             transform.localScale = new Vector2(-1, 1);
@@ -37,16 +58,17 @@ public class Enemy : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D trig)
     {
+        //If the boar hits the collider obiects I have set up through out the level it will flip and head in the reverse direction
         if (trig.gameObject.CompareTag("turn"))
         {
 
-            if (MoveRight)
+            if (moveRight)
             {
-                MoveRight = false;
+                moveRight = false;
             }
             else
             {
-                MoveRight = true;
+                moveRight = true;
             }
         }
     }
@@ -54,7 +76,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
+        //Making sure the boar's movement speed isn't less than zero meaning that it is still alive and to play a hurt sound when hit
         if (speed > 0f)
         {
             if (Random.Range(0, 2) == 0)
@@ -80,7 +102,6 @@ public class Enemy : MonoBehaviour
         Debug.Log("Enemy is dead");
         audioSource.mute = !audioSource.mute;
         //Die Animation
-        //animator.SetBool("isDead", true);
         animator.Play("Boar Death");
         speed = 0f;
         this.enabled = false;

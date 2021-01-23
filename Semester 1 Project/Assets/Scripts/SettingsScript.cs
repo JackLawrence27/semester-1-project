@@ -14,6 +14,7 @@ public class SettingsScript : MonoBehaviour
 
     private void Start()
     {
+        //This is used to detect the amount of possible variations of resolution the user's computer has and then displays them as options in the menu
         resolutions = Screen.resolutions;
 
         resolutionDropdown.ClearOptions();
@@ -38,6 +39,7 @@ public class SettingsScript : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
+    //All used for the clickable options in the options making sure that they change the appropriate setting
     public void SetResolution(int resolutionIndex)
     {
         Resolution resolution = resolutions[resolutionIndex];

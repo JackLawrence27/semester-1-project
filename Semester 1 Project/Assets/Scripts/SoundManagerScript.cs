@@ -10,6 +10,7 @@ public class SoundManagerScript : MonoBehaviour
 
     void Start()
     {
+        //loading all the sounds into the script from the unity editor
         playerJumpSound = Resources.Load<AudioClip>("jump_snd");
         playerAttackSound = Resources.Load<AudioClip>("attack_snd");
         boarHurtOne = Resources.Load<AudioClip>("boar_hurt1");
@@ -19,15 +20,9 @@ public class SoundManagerScript : MonoBehaviour
 
         audioSrc = GetComponent<AudioSource>();
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public static void PlaySound (string clip)
     {
+        //Cycling through which sound to play based on what's called by the player.
         switch(clip){
             case "jump_snd":
                 audioSrc.PlayOneShot(playerJumpSound);

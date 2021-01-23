@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerScript : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class PlayerScript : MonoBehaviour
     bool facingRight;
     bool multipleJump;
 
+    public string onDeath = "deathReset";
+
     //Coding
     void Awake()
     {
@@ -38,6 +41,14 @@ public class PlayerScript : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == onDeath)
+        {
+            SceneManager.LoadScene("Game Scene");
+        }
     }
 
     // Update is called once per frame
@@ -192,3 +203,4 @@ public class PlayerScript : MonoBehaviour
         transform.localScale = theScale;
     }
 }
+
