@@ -48,6 +48,7 @@ public class PlayerScript : MonoBehaviour
         if (collision.gameObject.tag == onDeath)
         {
             SceneManager.LoadScene("Game Scene");
+            ScoreScript.scoreValue = 0;
         }
     }
 

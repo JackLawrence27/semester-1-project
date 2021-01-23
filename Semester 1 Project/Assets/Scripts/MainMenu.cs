@@ -20,6 +20,13 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void Menu()
+    {
+        //Used for quit game on the menu
+        SceneManager.LoadScene("Main Menu");
+    }
+
+
     IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(0.5f);

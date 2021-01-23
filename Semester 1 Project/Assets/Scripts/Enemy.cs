@@ -103,6 +103,7 @@ public class Enemy : MonoBehaviour
         audioSource.mute = !audioSource.mute;
         //Die Animation
         animator.Play("Boar Death");
+        ScoreScript.scoreValue += 1;
         speed = 0f;
         this.enabled = false;
     }
